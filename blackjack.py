@@ -226,5 +226,3 @@ root = tk.Tk()
 root.geometry("900x800")
 app = BlackJackUi(root)
 root.mainloop()
-
-#potrebuju dodelat, new game ktere nefunguje, debugovat skore, nukazujou se karty, 
