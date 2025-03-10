@@ -15,14 +15,13 @@ class Player:
     def vypocitat_skore(self):
         aces = 0
         score = 0
-        # Nejprve počítáme všechny karty kromě es
         for card in self.deck:
-            if card.value == 11:  # Pokud je to eso
+            if card.value == 11:  
                 aces += 1
             else:
                 score += card.value
         
-        # Přidáme esa
+
         for _ in range(aces):
             if score + 11 <= 21:
                 score += 11
@@ -35,7 +34,7 @@ class Player:
 class Card:
     def __init__(self, file_name, value):
         self.file_name = file_name
-        self.image_path = f"python/images/{file_name}.png"  # Opravena cesta k obrázkům
+        self.image_path = f"python/images/{file_name}.png"  
         self.value = value
 
 class Deck:
@@ -194,7 +193,6 @@ class BlackJackUi:
         if show_dealer:
             self.dealer_label_score.config(text=f"Dealer Skore: {self.dealer.vypocitat_skore()}")
         else:
-            # Pokud skrýváme druhou kartu dealera, počítáme pouze viditelnou kartu
             visible_score = self.dealer.deck[0].value if len(self.dealer.deck) > 0 else 0
             self.dealer_label_score.config(text=f"Dealer Skore: {visible_score}")
 
@@ -209,7 +207,7 @@ class BlackJackUi:
                 photo = ImageTk.PhotoImage(img)
 
             label = tk.Label(frame, image=photo)
-            label.image = photo  # Uchování reference, aby se obrázek zobrazil
+            label.image = photo  
             label.pack(side="left", padx=5) 
 
 
